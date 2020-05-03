@@ -13,7 +13,7 @@
 </scroll-view>
 
 <block wx:if="{{TabCur==1}}">
-  <block wx:for="{{examDafault}}">
+  <block wx:for="{{examDafault}}" wx:key>
     <view class="cu-timeline">
       <view class="cu-time">{{item.examTime}}</view>
       <view class="cu-item text-orange cuIcon-noticefill">
@@ -29,20 +29,27 @@
   </block>
 </block>
 <block wx:if="{{TabCur==2}}">
-  <block wx:for="{{target}}">
+  <block wx:for="{{target}}" wx:key>
     <view class="cu-timeline">
       <view class="cu-time">{{item.targetTime}}</view>
       <view class="cu-item text-red cuIcon-countdownfill">
         <view class="content">
-          <view class="cu-capsule radius">
-            <view class="cu-tag bg-cyan">倒计时</view>
-            <view class="cu-tag line-cyan">{{item.countDown}}</view>
-          </view>
-          <view class="margin-top">[ {{item.targetName}} ]： {{item.targetIntro}}</view>
+          <van-swipe-cell id="{{item._id}}" right-width="{{ 65 }}" bind:click="onTargetClick">
+            <van-cell-group>
+              <view class="cu-capsule radius">
+                <view class="cu-tag bg-cyan">倒计时</view>
+                <view class="cu-tag line-cyan">{{item.countDown}}</view>
+              </view>
+              <view class="margin-top">[ {{item.targetName}} ]： {{item.targetIntro}}</view>
+            </van-cell-group>
+            <view slot="right">删除</view>
+          </van-swipe-cell>
         </view>
       </view>
     </view>
   </block>
+
+  <van-divider contentPosition="center" customStyle="color: #1CBBB4;border-color: #1CBBB4;font-size: 12px;">左滑可删除任务</van-divider>
 
   <form bindsubmit="formSubmit">
     <view class="cu-form-group margin-top">
@@ -66,3 +73,42 @@
     </view>
   </form>
 </block>
+
+
+<!-- target关闭的基础用法 -->
+<!-- <block wx:for="{{target}}">
+  <view class="cu-timeline">
+    <view class="cu-time">{{item.targetTime}}</view>
+    <view class="cu-item text-red cuIcon-countdownfill">
+      <view class="content">
+        <van-swipe-cell right-width="{{ 65 }}" bind:click="onTargetClick">
+          <van-cell-group>
+            <view class="cu-capsule radius">
+              <view class="cu-tag bg-cyan">倒计时</view>
+              <view class="cu-tag line-cyan">{{item.countDown}}</view>
+            </view>
+            <view class="margin-top">[ {{item.targetName}} ]： {{item.targetIntro}}</view>
+          </van-cell-group>
+          <view slot="right">删除</view>
+        </van-swipe-cell>
+      </view>
+    </view>
+  </view>
+</block> -->
+
+
+<!-- 单纯的卡片 -->
+<!-- <block wx:for="{{target}}">
+  <view class="cu-timeline">
+    <view class="cu-time">{{item.targetTime}}</view>
+    <view class="cu-item text-red cuIcon-countdownfill">
+      <view class="content">
+        <view class="cu-capsule radius">
+          <view class="cu-tag bg-cyan">倒计时</view>
+          <view class="cu-tag line-cyan">{{item.countDown}}</view>
+        </view>
+        <view class="margin-top">[ {{item.targetName}} ]： {{item.targetIntro}}</view>
+      </view>
+    </view>
+  </view>
+</block> -->

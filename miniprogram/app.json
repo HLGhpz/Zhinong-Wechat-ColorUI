@@ -2,16 +2,28 @@
   "pages": [
     "pages/index/index",
     "pages/target/target",
-    "pages/activity/activity"
+    "pages/activity/activity",
+    "pages/salary/home/home",
+    "pages/salary/college/college",
+    "pages/salary/profession/profession",
+    "pages/salary/class/class",
+    "pages/author/author"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
     "navigationBarTitleText": "Color UI",
     "navigationStyle": "custom",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-divider": "@vant/weapp/divider/index"
   },
   "sitemapLocation": "sitemap.json"
 }

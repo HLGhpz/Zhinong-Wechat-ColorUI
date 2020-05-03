@@ -1,7 +1,7 @@
 <scroll-view scroll-y class="scrollPage">
   <image src='/images/nav/activity-4.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
 </scroll-view>
-<block wx:for="{{activity}}">
+<block wx:for="{{activity}}" wx:key>
   <view class="cu-card case">
     <view class="cu-item shadow">
       <view class="image">

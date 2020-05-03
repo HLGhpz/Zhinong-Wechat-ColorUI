@@ -18,6 +18,7 @@ Page({
     targetIntro: "",
     targetDate: new Date().toLocaleDateString().replace(/\//g, '-'),
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -58,7 +59,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    this.reqTarget().then(wx.stopPullDownRefresh())
   },
 
   /**
@@ -129,8 +130,21 @@ Page({
       })
   },
 
+  /**
+   * 监听Target数据的提交
+   */
   formSubmit(e) {
     console.log(e.detail.value)
+    target.add({
+      data: {
+        creatTime: new Date,
+        targetTime: new Date(e.detail.value.targetTime),
+        targetIntro: e.detail.targetIntro,
+        targetName: e.detail.value.targetName
+      }
+    }).then(res => {
+      this.reqTarget()
+    })
   },
 
   /**
@@ -141,5 +155,14 @@ Page({
       targetDate: e.detail.value
     })
   },
+
+  /**
+   * 监听Target删除
+   */
+  onTargetClick(e) {
+    // wx.startPullDownRefresh()
+    console.log(e)
+    target.doc(e.target.id).remove().then(wx.startPullDownRefresh())
+  }
 
 })

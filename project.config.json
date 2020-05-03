@@ -4,10 +4,23 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"enhance": true
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true
 	},
 	"appid": "wx7125d0c29c98bf1a",
 	"projectname": "%E7%9F%A5%E4%BE%AC-ColorUI",
@@ -61,6 +74,13 @@
 					"id": -1,
 					"name": "Activity",
 					"pathName": "pages/activity/activity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "SalaryHome",
+					"pathName": "pages/salary/home/home",
 					"scene": null
 				}
 			]
