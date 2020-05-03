@@ -9,14 +9,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    TabCur: 0,
+    TabCur: 1,
     scrollLeft: 0,
     examDafault: [],
     target: [],
     targetDate: "",
     targetName: "",
     targetIntro: "",
-    date: new Date().toLocaleDateString().replace(/\//g, '-'),
+    targetDate: new Date().toLocaleDateString().replace(/\//g, '-'),
   },
   /**
    * 生命周期函数--监听页面加载
@@ -138,7 +138,7 @@ Page({
    */
   DateChange(e) {
     this.setData({
-      date: e.detail.value
+      targetDate: e.detail.value
     })
   },
 

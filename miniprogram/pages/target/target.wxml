@@ -1,0 +1,68 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">时间轴</view>
+</cu-custom>
+
+<scroll-view scroll-x class="bg-cyan nav text-center">
+  <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="1">
+    <text class="cuIcon-edit"></text> 默认
+  </view>
+  <view class="cu-item {{2==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="2">
+    <text class="cuIcon-remind"></text> 自定义
+  </view>
+</scroll-view>
+
+<block wx:if="{{TabCur==1}}">
+  <block wx:for="{{examDafault}}">
+    <view class="cu-timeline">
+      <view class="cu-time">{{item.examTime}}</view>
+      <view class="cu-item text-orange cuIcon-noticefill">
+        <view class="content">
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-cyan">倒计时</view>
+            <view class="cu-tag line-cyan">{{item.countDown}}</view>
+          </view>
+          <view class="margin-top">[ {{item.examSubject}} ]： {{item.examIntro}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</block>
+<block wx:if="{{TabCur==2}}">
+  <block wx:for="{{target}}">
+    <view class="cu-timeline">
+      <view class="cu-time">{{item.targetTime}}</view>
+      <view class="cu-item text-red cuIcon-countdownfill">
+        <view class="content">
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-cyan">倒计时</view>
+            <view class="cu-tag line-cyan">{{item.countDown}}</view>
+          </view>
+          <view class="margin-top">[ {{item.targetName}} ]： {{item.targetIntro}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <form bindsubmit="formSubmit">
+    <view class="cu-form-group margin-top">
+      <view class="title">事件</view>
+      <input name="targetName" placeholder="请输入事件名"></input>
+      <text class="cuIcon-favor text-orange"></text>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">简介</view>
+      <input name="targetIntro" placeholder="请输入事件简介"></input>
+      <text class="cuIcon-comment text-orange"></text>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">日期</view>
+      <picker name="targetTime" mode="date" value="{{targetDate}}" bindchange="DateChange" start="2020-01-01" end="2030-01-01">
+        <view class="picker">{{targetDate}}</view>
+      </picker>
+    </view>
+    <view class="padding flex flex-direction">
+      <button form-type="submit" class="cu-btn bg-cyan lg">提交</button>
+    </view>
+  </form>
+</block>

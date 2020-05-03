@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/target/target"
+    "pages/target/target",
+    "pages/activity/activity"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
