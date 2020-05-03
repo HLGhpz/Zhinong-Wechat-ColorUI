@@ -1,3 +1,28 @@
 <scroll-view scroll-y class="scrollPage">
-  <image src='/images/BasicsBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
+  <image src='/images/nav/activity-4.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
 </scroll-view>
+<block wx:for="{{activity}}">
+  <view class="cu-card case">
+    <view class="cu-item shadow">
+      <view class="image">
+        <image src="{{item.activityImg[0]}}" mode="widthFix"></image>
+        <view class="cu-tag bg-blue">{{item.activitySponsor}}</view>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">{{item.activityTitle}}</text>
+        </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url(/images/avator/hzau.png);"></view>
+          <view class="content flex-sub">
+            <view class="text-black">{{item.activitySponsor}}</view>
+            <view class="text-red text-sm flex justify-between">
+              {{item.activityTime}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</block>
