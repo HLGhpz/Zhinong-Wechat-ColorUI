@@ -27,6 +27,7 @@
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -81,6 +82,13 @@
 					"id": -1,
 					"name": "SalaryHome",
 					"pathName": "pages/salary/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "SalaryClass",
+					"pathName": "pages/salary/class/class",
 					"scene": null
 				}
 			]

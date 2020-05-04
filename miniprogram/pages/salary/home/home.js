@@ -62,5 +62,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  reqFunction(){
+    wx.cloud.callFunction({
+      name: "reqActivity"
+    }).then(res=>{
+      console.log(res)
+    })
   }
 })

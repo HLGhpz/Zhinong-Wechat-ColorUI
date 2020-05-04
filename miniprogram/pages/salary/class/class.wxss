@@ -1,1 +1,9 @@
 /* pages/salary/class/class.wxss */
+.f2-chart {
+  width: 100%;
+  height: 500rpx;
+}
+
+.container {
+  height: 500rpx;
+}

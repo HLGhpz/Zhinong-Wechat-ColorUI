@@ -13,3 +13,4 @@
 </van-swipe-cell>
 </view>
 
+<button bindtap="reqFunction">请求</button>

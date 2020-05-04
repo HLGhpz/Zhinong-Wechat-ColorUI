@@ -23,7 +23,8 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-button": "@vant/weapp/button/index",
     "van-dialog": "@vant/weapp/dialog/index",
-    "van-divider": "@vant/weapp/divider/index"
+    "van-divider": "@vant/weapp/divider/index",
+    "f2": "@antv/wx-f2"
   },
   "sitemapLocation": "sitemap.json"
 }
