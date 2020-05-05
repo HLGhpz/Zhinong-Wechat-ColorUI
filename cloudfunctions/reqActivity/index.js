@@ -5,6 +5,8 @@ const rp = require('request-promise');
 const cheerio = require('cheerio');
 const db = cloud.database()
 const _ = db.command
+const selectActivePath = 'div.zy-mainxrx ul li'
+const imgBaseUrl = 'http://www.hzau.edu.cn/'
 
 // 云函数入口函数
 exports.main = async(event, context) => {
@@ -13,26 +15,79 @@ exports.main = async(event, context) => {
   const options = {
     url: 'http://www.hzau.edu.cn/hdyg.htm'
   }
-
-  async function getLatestNumber() {
-    const activityData = await db.collection('Activity').orderBy("activityNumber", "desc").limit(1).get()
-    return activityData[0].activityNumber
-  }
-
-  async function upActivityData() {
-    const activityNumber = await getLastNumber()
-    reqActivity(activityNumber)
-  }
-
-  async function reqActivity(lastNumber) {
-    let html = await rp(options)
-    $ = cheerio.load(html)
-    $(selectActivePath).each(
-      if()
-    )
-
-  }
-
-  const data = await getLatestNumber()
-  return data
+  mianActivity()
 }
+
+// 主函数
+async function mianActivity() {
+  let lastActivity = await db.collection('Activity').orderBy("activityNumber", "desc").limit(1).get()
+  let lastNumber = lastActivity.data[0].activityNumber
+  let html = await rp('http://www.hzau.edu.cn/hdyg.htm')
+  let $ = cheerio.load(html)
+  $(selectActivePath).each((index, elem) => {
+    // console.log("in$")
+    let elemLink = $('a', $(elem)).attr('href')
+    let elemNumber = parseInt(elemLink.match(/\d+/g)[1])
+    if (elemNumber > lastNumber) {
+      // console.log(elemNumber)
+      getNewActivityData($, elem, elemLink, elemNumber)
+        .then((res)=>{
+          console.log(res)
+        }
+      //     async function(res) {
+      //   sonsole.log(res)
+      //   await db.collection('Activity').add({
+      //     data: res
+      //   })
+      // }
+      )
+    }
+  })
+};
+
+// 获取数据库中最新的一条数据
+// async function getLatestNumber() {
+//   const activityData = await db.collection('Activity').orderBy("activityNumber", "desc").limit(1).get()
+//   return activityData[0].activityNumber
+// };
+
+// 获取更新的数据
+async function getNewActivityData($, elem, elemLink, elemNumber) {
+  let activityLink = imgBaseUrl + elemLink.replace("../", "").replace("../", "")
+  let activityTitle = $('a', $(elem)).text()
+  let activityTime = $('small', $(elem)).text()
+  let activitySponsor = $('span', $(elem)).text()
+  let activityNumber = elemNumber;
+  let imgHtml = await rp(activityLink)
+  console.log("getNewActivityData")
+  let soup = cheerio.load(imgHtml)
+  activityImg = soup('div.v_news_content p img').attr('src')
+  console.log({
+    activityTitle,
+    activityTime,
+    activitySponsor,
+    activityNumber,
+    activityImg
+  })
+  return {
+    activityTitle,
+    activityTime,
+    activitySponsor,
+    activityNumber,
+    activityImg
+  }
+}
+
+// function getNewActivityData($, elem, elemLink, elemNumber) {
+//   let activityLink = imgBaseUrl + elemLink.replace("../", "").replace("../", "")
+//   let activityTitle = $('a', $(elem)).text()
+//   let activityTime = $('small', $(elem)).text()
+//   let activitySponsor = $('span', $(elem)).text()
+//   let activityNumber = elemNumber;
+//   return {
+//     activityTitle,
+//     activityTime,
+//     activitySponsor,
+//     activityNumber
+//   }
+// }

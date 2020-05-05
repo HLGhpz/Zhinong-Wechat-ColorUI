@@ -9,7 +9,7 @@ Page({
   data: {
     chartShow: false,
     initChart: null,
-    year: 2019
+    year: 2019,
   },
 
   /**
@@ -69,8 +69,12 @@ Page({
   },
 
   async getDate() {
-    const data = await this.reqClassSalary()
-    console.log("getData",data)
+    const reqSalary = await classSalaryDB.where({
+        year: 2016
+      })
+      .orderBy("meanVale", "desc")
+      .get()
+    const data = reqSalary.data
     this.setData({
       initChart: (F2, config) => {
         this.renderChart(F2, config, data)
@@ -79,28 +83,26 @@ Page({
     })
   },
 
-  reqClassSalary() {
-    console.log("hello world")
-    classSalaryDB.where({
-        year: 2016
-      })
-      .orderBy("meanVale", "desc")
-      .get()
-      .then(res => {
-        console.log("reqData",res.data)
-        return res.data
-      })
-  },
-
   renderChart(F2, config, data) {
     const chart = new F2.Chart(config);
     chart.source(data);
+    chart.coord({
+      transposed: true
+    })
     console.log(data)
-    chart.interval().position('classes*meanValue').color('classes')
+    // chart.tooltip({
+    //   showItemMarker: false,
+    //   onShow: function onShow(ev) {
+    //     console.log("tip")
+    //     const items = ev.items;
+    //     items[0].name = null;
+    //     items[0].name = items[0].title;
+    //     items[0].value = '¥ ' + items[0].value;
+    //   }
+    // });
+    chart.interval().position('classesAlias*meanVale').color('classesAlias')
     chart.render();
     // 注意：需要把chart return 出来
     return chart;
   }
-
-
 })

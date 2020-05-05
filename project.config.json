@@ -2,13 +2,14 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -19,8 +20,7 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"nodeModules": true
+		}
 	},
 	"appid": "wx7125d0c29c98bf1a",
 	"projectname": "%E7%9F%A5%E4%BE%AC-ColorUI",
@@ -89,6 +89,19 @@
 					"id": -1,
 					"name": "SalaryClass",
 					"pathName": "pages/salary/class/class",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "SalaryCollege",
+					"pathName": "pages/salary/college/college",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/salary/pie-select/index",
+					"pathName": "pages/salary/pie-select/index",
 					"scene": null
 				}
 			]

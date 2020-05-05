@@ -4,8 +4,8 @@
     "pages/target/target",
     "pages/activity/activity",
     "pages/salary/home/home",
-    "pages/salary/college/college",
     "pages/salary/profession/profession",
+    "pages/salary/college/college",
     "pages/salary/class/class",
     "pages/author/author"
   ],
