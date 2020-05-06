@@ -1,5 +1,6 @@
 const db = wx.cloud.database()
 const _ = db.command
+const yearDB = db.collection('Years')
 const classSalaryDB = db.collection('ClassSalary')
 Page({
 
@@ -7,16 +8,73 @@ Page({
    * 页面的初始数据
    */
   data: {
-    chartShow: false,
+    showChart: false,
     initChart: null,
-    year: 2019,
+    TabCur: 0
+  },
+
+  /**
+   * 年份选择
+   */
+  tabSelect(e) {
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60,
+    })
+    this.getClassSalary()
+  },
+
+  /**
+   * 获取初始的年份数据
+   */
+  getYearData() {
+    yearDB.orderBy('year', 'desc').get().then(res => {
+      this.setData({
+        years: res.data
+      })
+      this.getClassSalary()
+    })
+  },
+
+  /**
+   * 获取年份对应的月薪情况
+   */
+  async getClassSalary() {
+    let year = this.data.years[this.data.TabCur].year
+    console.log(year)
+    const reqSalary = await classSalaryDB.where({
+        year
+      })
+      .orderBy("meanVale", "desc")
+      .get()
+    const data = reqSalary.data
+    console.log(data)
+
+    this.setData({
+      initChart: (F2, config) => {
+        this.renderChart(F2, config, data)
+      },
+      chartShow: true
+    })
+  },
+
+  renderChart(F2, config, data) {
+    const chart = new F2.Chart(config);
+    chart.source(data);
+    chart.coord({
+      transposed: true
+    })
+    chart.interval().position('classesAlias*meanVale').color('classesAlias');
+    chart.render();
+    // 注意：需要把chart return 出来
+    return chart;
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getDate();
+    this.getYearData();
   },
 
   /**
@@ -66,43 +124,5 @@ Page({
    */
   onShareAppMessage: function() {
 
-  },
-
-  async getDate() {
-    const reqSalary = await classSalaryDB.where({
-        year: 2016
-      })
-      .orderBy("meanVale", "desc")
-      .get()
-    const data = reqSalary.data
-    this.setData({
-      initChart: (F2, config) => {
-        this.renderChart(F2, config, data)
-      },
-      chartShow: true
-    })
-  },
-
-  renderChart(F2, config, data) {
-    const chart = new F2.Chart(config);
-    chart.source(data);
-    chart.coord({
-      transposed: true
-    })
-    console.log(data)
-    // chart.tooltip({
-    //   showItemMarker: false,
-    //   onShow: function onShow(ev) {
-    //     console.log("tip")
-    //     const items = ev.items;
-    //     items[0].name = null;
-    //     items[0].name = items[0].title;
-    //     items[0].value = '¥ ' + items[0].value;
-    //   }
-    // });
-    chart.interval().position('classesAlias*meanVale').color('classesAlias')
-    chart.render();
-    // 注意：需要把chart return 出来
-    return chart;
   }
 })

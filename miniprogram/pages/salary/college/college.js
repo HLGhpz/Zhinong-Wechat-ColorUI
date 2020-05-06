@@ -2,66 +2,46 @@
 const db = wx.cloud.database()
 const _ = db.command
 const collegeProfessionDB = db.collection('CollegeProfession')
-const professionDB = db.collection('UndergraduateProfession')
+const collegeDB = db.collection('UndergraduateCollege')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    mainActiveIndex: 0,
-    activeId: null
+    TabCur: 0,
+    scrollLeft: 0,
+    items: []
   },
 
-  /**
-   *   左侧导航点击时，触发的事件
-   */
-  onClickNav({ detail = {} }) {
+  tabSelect(e) {
     this.setData({
-      mainActiveIndex: detail.index || 0,
-      activeId: null
-    });
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+    })  
+    this.getCollegeSalary()
   },
 
-  /**
-   *   右侧选择项被点击时，会触发的事件
-   */
-  onClickItem({ detail = {} }) {
-    const activeId = this.data.activeId === detail.id ? null : detail.id;
-    this.setData({ activeId });
-    this.getSalary()
-  },
-
-  getSalary(){
-    let profession = this.data.items[this.data.mainActiveIndex].children[this.data.activeId].text
-    professionDB.where({
-      "profession": profession
+  getCollegeSalary(){
+    let college = this.data.items[this.data.TabCur].college
+    collegeDB.where({
+      "college": college
     }).orderBy('year', "desc")
     .get().then((res)=>{
       console.log(res.data)
       this.setData({
-        professionSalary: res.data
+        collegeSalary: res.data
       })
     })
   },
 
   getData(){
-    collegeProfessionDB.get().then((res)=>{
-      console.log(res.data)
-      let items = []
-      
-      res.data.forEach((elem, index)=>{
-        let text = elem.college;
-        let children = []
-        elem.profession.forEach((elem, index)=>{
-          children.push({"text": elem, "id": index})
-          // console.log(elem)
-        })
-        items.push({"text": elem.college, "children": children})
-      })
+    collegeProfessionDB.orderBy("year", 'desc').get().then((res)=>{
+      let items = res.data
       this.setData({
         items
       })
+      this.getCollegeSalary()
     })
   },
 

@@ -4,10 +4,15 @@
   <view slot="content">学院查询</view>
 </cu-custom>
 
-<van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" bind:click-nav="onClickNav"  />
+<scroll-view scroll-x class="bg-pink nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="cu-item {{index==TabCur?'text-white text-lx cur':''}}" wx:for="{{items}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+    {{item.college}}
+  </view>
+</scroll-view>
 
 
-<!-- <block wx:for="{{professionSalary}}">
+
+<block wx:for="{{collegeSalary}}">
   <scroll-view scroll-y class="scrollPage">
     <view class="cu-list menu card-menu margin-top margin-bottom shadow-lg radius">
       <view class="cu-item">
@@ -17,6 +22,24 @@
         </view>
         <view class="action">
           <text class="text-black text">{{item.year}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-pay text-green"></text>
+          <text class="text-black text">月薪</text>
+        </view>
+        <view class="action">
+          <text class="text-black text">{{item.monthlySalary}}￥</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-pay text-olive"></text>
+          <text class="text-black text">一年后月薪</text>
+        </view>
+        <view class="action">
+          <text class="text-black text">{{item.monthlySalaryOneYear}}￥</text>
         </view>
       </view>
       <view class="cu-item">
@@ -61,7 +84,7 @@
           <text class="text-black">留学率</text>
         </view>
         <view class="action">
-          <text class="text-black">{{item.studyAbroda}}%</text>
+          <text class="text-black">{{item.studyAbroad}}%</text>
         </view>
       </view>
       <view class="cu-item">
@@ -75,7 +98,7 @@
       </view>
     </view>
   </scroll-view>
-</block> -->
+</block>
 
 
 

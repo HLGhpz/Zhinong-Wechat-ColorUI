@@ -10,7 +10,7 @@ Page({
    */
   data: {
     mainActiveIndex: 0,
-    activeId: null
+    activeId: 0
   },
 
   /**
@@ -62,6 +62,7 @@ Page({
       this.setData({
         items
       })
+      this.getSalary()
     })
   },
 

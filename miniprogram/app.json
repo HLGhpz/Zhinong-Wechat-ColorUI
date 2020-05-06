@@ -6,6 +6,7 @@
     "pages/salary/home/home",
     "pages/salary/profession/profession",
     "pages/salary/college/college",
+    "pages/salary/test/test",
     "pages/salary/class/class",
     "pages/author/author"
   ],

@@ -111,6 +111,20 @@
 					"name": "pages/salary/profession/profession",
 					"pathName": "pages/salary/profession/profession",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/salary/class/class",
+					"pathName": "pages/salary/class/class",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/salary/test/test",
+					"pathName": "pages/salary/test/test",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

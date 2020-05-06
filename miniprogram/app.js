@@ -75,7 +75,8 @@ App({
       {
         title: '桃粉',
         name: 'pink',
-        color: '#e03997'
+        // color: '#e03997'
+        color: '#ED556A'
       },
       {
         title: '棕褐',
@@ -102,6 +103,11 @@ App({
         name: 'white',
         color: '#ffffff'
       },
+      {
+        title: '淡紫',
+        name: 'lightPurple',
+        color: '#B1199F'
+      }
     ]
   }
 })

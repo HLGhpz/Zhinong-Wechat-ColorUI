@@ -1,7 +1,6 @@
-<!--pages/salary/college/college.wxml-->
 <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">学院查询</view>
+  <view slot="content">专业查询</view>
 </cu-custom>
 
 <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" bind:click-nav="onClickNav" bind:click-item="onClickItem" />
