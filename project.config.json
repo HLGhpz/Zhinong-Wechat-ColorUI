@@ -96,12 +96,20 @@
 					"id": -1,
 					"name": "SalaryCollege",
 					"pathName": "pages/salary/college/college",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/salary/pie-select/index",
 					"pathName": "pages/salary/pie-select/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/salary/profession/profession",
+					"pathName": "pages/salary/profession/profession",
 					"scene": null
 				}
 			]

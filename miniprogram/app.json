@@ -24,6 +24,9 @@
     "van-button": "@vant/weapp/button/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-divider": "@vant/weapp/divider/index",
+    "van-tree-select": "@vant/weapp/tree-select/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
     "f2": "@antv/wx-f2"
   },
   "sitemapLocation": "sitemap.json"

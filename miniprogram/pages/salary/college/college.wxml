@@ -1,2 +1,82 @@
 <!--pages/salary/college/college.wxml-->
-<text>pages/salary/college/college.wxml</text>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">学院查询</view>
+</cu-custom>
+
+<van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" bind:click-nav="onClickNav"  />
+
+
+<!-- <block wx:for="{{professionSalary}}">
+  <scroll-view scroll-y class="scrollPage">
+    <view class="cu-list menu card-menu margin-top margin-bottom shadow-lg radius">
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-edit text-red"></text>
+          <text class="text-black text">年份</text>
+        </view>
+        <view class="action">
+          <text class="text-black text">{{item.year}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-friendfill text-mauve"></text>
+          <text class="text-black">人数</text>
+        </view>
+        <view class="action">
+          <text class="text-black">{{item.student}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-brandfill text-cyan"></text>
+          <text class="text-black">就业率</text>
+        </view>
+        <view class="action">
+          <text class="text-black">{{item.employmentRate}}%</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-likefill text-orange"></text>
+          <text class="text-black">满意度</text>
+        </view>
+        <view class="action">
+          <text class="text-black">{{item.employmentAgreement}}%</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-medalfill text-pink"></text>
+          <text class="text-black">升学率</text>
+        </view>
+        <view class="action">
+          <text class="text-black">{{item.postgraduateStudy}}%</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-choicenessfill text-purple"></text>
+          <text class="text-black">留学率</text>
+        </view>
+        <view class="action">
+          <text class="text-black">{{item.studyAbroda}}%</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-upstagefill text-yellow"></text>
+          <text class="text-black">创业率</text>
+        </view>
+        <view class="action">
+          <text class="text-black">{{item.entrepreneurship}}%</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</block> -->
+
+
+
+<!-- <button bindtap="getData">getData</button> -->
