@@ -1,0 +1,9 @@
+/* pages/salary/test2/test2.wxss */
+.f2-chart {
+  width: 100%;
+  height: 500rpx;
+}
+
+.container {
+  height: 500rpx;
+}

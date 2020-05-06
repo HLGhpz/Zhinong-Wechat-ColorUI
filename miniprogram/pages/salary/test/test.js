@@ -70,15 +70,15 @@ Page({
     chart.coord({
       transposed: true
     });
-    chart.tooltip({
-      showItemMarker: false,
-      onShow: function onShow(ev) {
-        const items = ev.items;
-        items[0].name = null;
-        items[0].name = items[0].title;
-        items[0].value = '¥ ' + items[0].value;
-      }
-    });
+    // chart.tooltip({
+    //   showItemMarker: false,
+    //   onShow: function onShow(ev) {
+    //     const items = ev.items;
+    //     items[0].name = null;
+    //     items[0].name = items[0].title;
+    //     items[0].value = '¥ ' + items[0].value;
+    //   }
+    // });
     chart.interval().position('classesAlias*meanVale').color('classesAlias');
     chart.render();
     // 注意：需要把chart return 出来
