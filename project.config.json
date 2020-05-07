@@ -124,6 +124,13 @@
 					"id": -1,
 					"name": "pages/salary/test2/test2",
 					"pathName": "pages/salary/test2/test2",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/salary/test/test",
+					"pathName": "pages/salary/test/test",
 					"scene": null
 				}
 			]

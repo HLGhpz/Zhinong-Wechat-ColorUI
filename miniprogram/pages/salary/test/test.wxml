@@ -1,0 +1,19 @@
+<!--pages/salary/test/test.wxml-->
+
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">专业查询</view>
+</cu-custom>
+
+<scroll-view scroll-x class="bg-pink nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-white cur':''}}" wx:for="{{years}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      {{item.year}}
+    </view>
+  </view>
+</scroll-view>
+
+<view class="qiun-charts">
+  <canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" bindtouchstart="touchLineA" bindtouchmove="moveLineA" bindtouchend="touchEndLineA"></canvas>
+
+</view>

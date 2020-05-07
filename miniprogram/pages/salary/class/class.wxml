@@ -11,6 +11,11 @@
     </view>
   </view>
 </scroll-view>
+
+<view class="qiun-charts">
+  <canvas canvas-id="canvasColumn" id="canvasColumn" class="charts" bindtouchstart="touchColumn"></canvas>
+</view>
+
 <!-- <scroll-view scroll-x class="bg-red nav" scroll-with-animation scroll-left="{{scrollLeft}}">
   <view class="cu-item {{index==TabCur?'text-white text-lx cur':''}}" wx:for="{{items}}" wx:key bindtap="tabSelect" data-id="{{index}}">
     {{item.college}}
@@ -18,9 +23,9 @@
 </scroll-view> -->
 
 
-<view class="container" wx:if = "{{showChart}}">
+<!-- <view class="container" wx:if = "{{showChart}}">
   <f2 class="f2-chart" onInit="{{initChart}}" />
-</view>
+</view> -->
 
 
 <!-- <view class="padding flex flex-direction">

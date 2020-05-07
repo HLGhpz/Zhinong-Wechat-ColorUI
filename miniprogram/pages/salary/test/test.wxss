@@ -1,4 +1,5 @@
-/* pages/salary/class/class.wxss */
+/* pages/salary/test/test.wxss */
+
 .qiun-charts {
   margin-top: 20rpx;
   padding: 20rpx;
