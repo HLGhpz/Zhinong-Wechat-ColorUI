@@ -10,7 +10,10 @@
   </view>
 </scroll-view>
 
-
+<view class="qiun-charts">
+  <canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" bindtouchstart="touchLineA" bindtouchmove="moveLineA" bindtouchend="touchEndLineA">
+  </canvas>
+</view>
 
 <block wx:for="{{collegeSalary}}">
   <scroll-view scroll-y class="scrollPage">

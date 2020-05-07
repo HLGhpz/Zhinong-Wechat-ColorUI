@@ -1,1 +1,16 @@
 /* pages/salary/college/college.wxss */
+
+.qiun-charts {
+  margin-top: 20rpx;
+  padding-top: 50rpx;
+  width: 750rpx;
+  height: 560rpx;
+  background-color: #fff;
+}
+
+.charts {
+  margin-top: 20rpx;
+  width: 750rpx;
+  height: 500rpx;
+  background-color: #fff;
+}

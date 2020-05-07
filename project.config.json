@@ -132,6 +132,12 @@
 					"name": "pages/salary/test/test",
 					"pathName": "pages/salary/test/test",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/salary/class2/class2",
+					"pathName": "pages/salary/class2/class2",
+					"scene": null
 				}
 			]
 		}

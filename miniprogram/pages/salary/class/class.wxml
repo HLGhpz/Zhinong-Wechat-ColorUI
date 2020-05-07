@@ -1,7 +1,8 @@
-  
+<!--pages/salary/test/test.wxml-->
+
 <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">类别查询</view>
+  <view slot="content">列表查询</view>
 </cu-custom>
 
 <scroll-view scroll-x class="bg-pink nav">
@@ -13,22 +14,49 @@
 </scroll-view>
 
 <view class="qiun-charts">
-  <canvas canvas-id="canvasColumn" id="canvasColumn" class="charts" bindtouchstart="touchColumn"></canvas>
+  <canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" bindtouchstart="touchLineA" bindtouchmove="moveLineA" bindtouchend="touchEndLineA">
+  </canvas>
 </view>
 
-<!-- <scroll-view scroll-x class="bg-red nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-  <view class="cu-item {{index==TabCur?'text-white text-lx cur':''}}" wx:for="{{items}}" wx:key bindtap="tabSelect" data-id="{{index}}">
-    {{item.college}}
-  </view>
-</scroll-view> -->
-
-
-<!-- <view class="container" wx:if = "{{showChart}}">
-  <f2 class="f2-chart" onInit="{{initChart}}" />
-</view> -->
-
-
-<!-- <view class="padding flex flex-direction">
-  <button bindtap="reqClassSalary" class="cu-btn bg-cyan lg">获取</button>
-</view> -->
-
+<block wx:for="{{classSalary}}">
+  <scroll-view scroll-y class="scrollPage">
+    <view class="cu-list menu card-menu margin-top margin-bottom shadow-lg radius">
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-discoverfill text-red"></text>
+          <text class="text-black">类别</text>
+        </view>
+        <view class="action">
+          <text class="text-black">{{item.classes}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-friendfill text-mauve"></text>
+          <text class="text-black">调查人数</text>
+        </view>
+        <view class="action">
+          <text class="text-black">{{item.sampleNumber}}</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-rechargefill text-green"></text>
+          <text class="text-black text">月薪</text>
+        </view>
+        <view class="action">
+          <text class="text-black text">{{item.meanVale}}￥</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <view class="content">
+          <text class="cuIcon-upstagefill text-pink"></text>
+          <text class="text-black text">标准差</text>
+        </view>
+        <view class="action">
+          <text class="text-black text">{{item.standardDeviation}}￥</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</block>
