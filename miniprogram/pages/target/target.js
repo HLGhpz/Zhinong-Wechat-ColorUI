@@ -59,7 +59,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    this.reqTarget().then(wx.stopPullDownRefresh())
+    this.reqTarget()
   },
 
   /**
@@ -95,17 +95,18 @@ Page({
       }).orderBy('examTime', 'desc')
       .get()
       .then(res => {
-        console.log(res.data)
         res.data.map((value, index) => {
           let nowDate = new Date
           let diffDate = value.examTime - nowDate
           let days = Math.floor(diffDate / (24 * 3600 * 1000))
+          days = days + 1
           value.examTime = value.examTime.toLocaleDateString()
           value.countDown = days
         })
         this.setData({
           examDafault: res.data
         })
+        wx.stopPullDownRefresh()
       })
   },
 
@@ -115,15 +116,14 @@ Page({
   reqTarget: function() {
     target.get()
       .then(res => {
-        console.log(res.data)
         res.data.map((value, index) => {
           let nowDate = new Date
           let diffDate = value.targetTime - nowDate
           let days = Math.floor(diffDate / (24 * 3600 * 1000))
+          days = days + 1
           value.targetTime = value.targetTime.toLocaleDateString()
           value.countDown = days
         })
-        console.log(res.data)
         this.setData({
           target: res.data
         })
@@ -134,12 +134,11 @@ Page({
    * 监听Target数据的提交
    */
   formSubmit(e) {
-    console.log(e.detail.value)
     target.add({
       data: {
         creatTime: new Date,
         targetTime: new Date(e.detail.value.targetTime),
-        targetIntro: e.detail.targetIntro,
+        targetIntro: e.detail.value.targetIntro,
         targetName: e.detail.value.targetName
       }
     }).then(res => {

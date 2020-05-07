@@ -15,6 +15,17 @@
   </canvas>
 </view>
 
+<view class="margin-top padding-left">
+  <view class="cu-capsule round">
+    <view class="cu-tag bg-pink ">
+      <text class="cuIcon-likefill"></text>
+    </view>
+    <view class="cu-tag line-pink">
+      {{collegeSalary[0].college}}
+    </view>
+  </view>
+</view>
+
 <block wx:for="{{collegeSalary}}">
   <scroll-view scroll-y class="scrollPage">
     <view class="cu-list menu card-menu margin-top margin-bottom shadow-lg radius">

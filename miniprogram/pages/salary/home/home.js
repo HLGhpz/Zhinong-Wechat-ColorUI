@@ -1,74 +1,33 @@
-// pages/salary/home/home.js
-Page({
-
-  /**
-   * 页面的初始数据
-   */
+const app = getApp();
+Component({
+  options: {
+    addGlobalClass: true,
+  },
   data: {
-
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    list: [{
+      title: '学院信息',
+      img: 'https://i.loli.net/2020/05/07/Qx3z7BXZ8Uq1Soe.png',
+      url: '/college/college'
+    },
+    {
+      title: '专业信息',
+      img: 'https://i.loli.net/2020/05/07/dynWkiIt8xP3wXA.png',
+      url: '/profession/profession'
+    },
+    {
+      title: '列表信息',
+      img: 'https://i.loli.net/2020/05/07/rdGge4LMyNSlnRK.png',
+      url: '/class/class'
+    }
+    ]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
-  reqFunction(){
-    wx.cloud.callFunction({
-      name: "getActivity"
-    }).then(res=>{
-      console.log(res)
-    })
+  methods: {
+    toChild(e) {
+      wx.navigateTo({
+        url: '/pages/salary' + e.currentTarget.dataset.url
+      })
+    },
   }
-})
+});

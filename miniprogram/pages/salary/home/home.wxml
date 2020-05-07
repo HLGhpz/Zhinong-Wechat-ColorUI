@@ -3,7 +3,7 @@
   <image src='../../../images/nav/salary-2.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
 </scroll-view>
 
-<view>
+<!-- <view>
 <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}">
   <view slot="left">选择</view>
   <van-cell-group>
@@ -13,4 +13,16 @@
 </van-swipe-cell>
 </view>
 
-<button bindtap="reqFunction">请求</button>
+<button bindtap="reqFunction">请求</button> -->
+<!-- <view slot="content">
+  <image src="/images/cjkz.png" mode="widthFix"></image>
+</view>
+</cu-custom> -->
+<view class="cu-card">
+  <view class="cu-item bg-img shadow-blur" style="background-image:url({{item.img}})" bindtap="toChild" data-url="{{item.url}}" wx:for="{{list}}" wx:key>
+    <view class="cardTitle text-red">
+      {{item.title}}
+    </view>
+  </view>
+</view>
+<view class="cu-tabbar-height"></view>

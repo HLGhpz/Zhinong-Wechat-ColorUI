@@ -5,6 +5,16 @@
 
 <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" bind:click-nav="onClickNav" bind:click-item="onClickItem" />
 
+<view class="margin-top padding-left">
+  <view class="cu-capsule round">
+    <view class="cu-tag bg-pink">
+      {{professionSalary[0].college}}
+    </view>
+    <view class="cu-tag line-pink">
+      {{professionSalary[0].profession}}
+    </view>
+  </view>
+</view>
 
 <block wx:for="{{professionSalary}}" wx:key>
   <scroll-view scroll-y class="scrollPage">

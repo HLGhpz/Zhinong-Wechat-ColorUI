@@ -1,13 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/target/target",
     "pages/activity/activity",
+    "pages/target/target",
+    "pages/author/author",
     "pages/salary/home/home",
     "pages/salary/profession/profession",
     "pages/salary/college/college",
-    "pages/salary/class/class",
-    "pages/author/author"
+    "pages/salary/class/class"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
@@ -28,5 +27,38 @@
     "van-sidebar": "@vant/weapp/sidebar/index",
     "van-sidebar-item": "@vant/weapp/sidebar-item/index"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#00959F",
+    "backgroundColor": "#f6f6f6",
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [
+      {
+        "selectedIconPath": "images/tabbar/activity-2.png",
+        "iconPath": "images/tabbar/activity-3.png",
+        "pagePath": "pages/activity/activity",
+        "text": "活动预告"
+      },
+      {
+        "selectedIconPath": "images/tabbar/employment-2.png",
+        "iconPath": "images/tabbar/employment-3.png",
+        "pagePath": "pages/salary/home/home",
+        "text": "就业查询"
+      },
+      {
+        "selectedIconPath": "images/tabbar/target-2.png",
+        "iconPath": "images/tabbar/target-3.png",
+        "pagePath": "pages/target/target",
+        "text": "目标管理"
+      },
+      {
+        "selectedIconPath": "images/tabbar/my-2.png",
+        "iconPath": "images/tabbar/my-3.png",
+        "pagePath": "pages/author/author",
+        "text": "关于作者"
+      }
+    ]
+  }
 }

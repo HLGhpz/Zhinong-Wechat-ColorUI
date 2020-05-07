@@ -1,4 +1,26 @@
 <!--pages/author/author.wxml-->
 <scroll-view scroll-y class="scrollPage">
-  <image src='../../../images/nav/salary-2.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
+  <image src='../../images/nav/author.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
 </scroll-view>
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <view class="cu-item arrow">
+    <view class="content" bindtap="CopyLink" data-link="https://github.com/HLGhpz/Zhinong-Wechat-ColorUI">
+      <text class="cuIcon-github text-grey"></text>
+      <text class="text-grey">GitHub</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content" bindtap="showQrcode">
+      <text class="cuIcon-appreciatefill text-red"></text>
+      <text class="text-grey">赞赏支持</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <button class="cu-btn content" bindtap="showPublic">
+      <text class="cuIcon-writefill text-cyan"></text>
+      <text class="text-grey">华中农大课程资料共享</text>
+    </button>
+  </view>
+</view>
+<view class="cu-tabbar-height"></view>

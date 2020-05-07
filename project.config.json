@@ -138,6 +138,12 @@
 					"name": "pages/salary/class2/class2",
 					"pathName": "pages/salary/class2/class2",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/author/author",
+					"pathName": "pages/author/author",
+					"scene": null
 				}
 			]
 		}
