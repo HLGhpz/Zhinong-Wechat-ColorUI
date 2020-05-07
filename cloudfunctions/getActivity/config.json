@@ -3,7 +3,7 @@
     {
       "name": "ReqActivity",
       "type": "timer",
-      "config": "* */10 * * * * *"
+      "config": "0 */10 * * * * *"
     }
   ]
 }
