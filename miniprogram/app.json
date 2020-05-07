@@ -7,6 +7,7 @@
     "pages/salary/profession/profession",
     "pages/salary/college/college",
     "pages/salary/class/class",
+    "pages/salary/test2/test2",
     "pages/author/author"
   ],
   "window": {
@@ -26,7 +27,7 @@
     "van-divider": "@vant/weapp/divider/index",
     "van-tree-select": "@vant/weapp/tree-select/index",
     "van-sidebar": "@vant/weapp/sidebar/index",
-    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index"
   },
   "sitemapLocation": "sitemap.json"
 }

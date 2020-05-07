@@ -15,9 +15,9 @@
         <view class="cu-item">
           <view class="cu-avatar round lg" style="background-image:url(/images/avator/hzau.png);"></view>
           <view class="content flex-sub">
-            <view class="text-black">{{item.activitySponsor}}</view>
-            <view class="text-red text-sm flex justify-between">
-              {{item.activityTime}}
+            <view class="text-cyan">{{item.activitySponsor}}</view>
+            <view class="text-black text-sm flex justify-between">
+              发布时间：{{item.activityTime}}
             </view>
           </view>
         </view>

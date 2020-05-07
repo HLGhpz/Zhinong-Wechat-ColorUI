@@ -1,0 +1,13 @@
+/* pages/salary/test2/test2.wxss */
+
+.qiun-charts {
+  width: 750rpx;
+  height: 500rpx;
+  background-color: #fff;
+}
+
+.charts {
+  width: 750rpx;
+  height: 500rpx;
+  background-color: #fff;
+}

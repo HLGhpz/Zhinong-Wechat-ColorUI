@@ -66,7 +66,7 @@ Page({
 
   reqFunction(){
     wx.cloud.callFunction({
-      name: "reqActivity"
+      name: "getActivity"
     }).then(res=>{
       console.log(res)
     })

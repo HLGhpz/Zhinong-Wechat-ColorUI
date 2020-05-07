@@ -20,29 +20,30 @@ exports.main = async(event, context) => {
 
 // 主函数
 async function mianActivity() {
-  let lastActivity = await db.collection('Activity').orderBy("activityNumber", "desc").limit(1).get()
+  console.log("mianActivity")
+  let lastActivity = await db.collection('Activity')
+    .orderBy('activityNumber', 'desc')
+    .limit(1)
+    .get()
   let lastNumber = lastActivity.data[0].activityNumber
-  let html = await rp('http://www.hzau.edu.cn/hdyg.htm')
-  let $ = cheerio.load(html)
-  $(selectActivePath).each((index, elem) => {
-    // console.log("in$")
-    let elemLink = $('a', $(elem)).attr('href')
-    let elemNumber = parseInt(elemLink.match(/\d+/g)[1])
-    if (elemNumber > lastNumber) {
-      // console.log(elemNumber)
-      getNewActivityData($, elem, elemLink, elemNumber)
-        .then((res)=>{
-          console.log(res)
-        }
-      //     async function(res) {
-      //   sonsole.log(res)
-      //   await db.collection('Activity').add({
-      //     data: res
-      //   })
-      // }
-      )
-    }
-  })
+  console.log("after activityNumber", lastNumber)
+  // return lastNumber
+  // let html = await rp('http://www.hzau.edu.cn/hdyg.htm')
+  // console.log("after rp")
+  // let $ = cheerio.load(html)
+  // // 遍历数组
+  // $(selectActivePath).each((index, elem) => {
+  //   let elemLink = $('a', $(elem)).attr('href')
+  //   let elemNumber = parseInt(elemLink.match(/\d+/g)[1])
+  //   if (elemNumber > lastNumber) {
+  //     console.log(elemNumber)
+  //     getNewActivityData($, elem, elemLink, elemNumber)
+  //       .then((res)=>{
+  //         console.log(res)
+  //       }
+  //     )
+  //   }
+  // })
 };
 
 // 获取数据库中最新的一条数据
@@ -58,6 +59,7 @@ async function getNewActivityData($, elem, elemLink, elemNumber) {
   let activityTime = $('small', $(elem)).text()
   let activitySponsor = $('span', $(elem)).text()
   let activityNumber = elemNumber;
+  console.log("before await")
   let imgHtml = await rp(activityLink)
   console.log("getNewActivityData")
   let soup = cheerio.load(imgHtml)

@@ -1,0 +1,12 @@
+<!--pages/salary/test2/test2.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">专业查询</view>
+</cu-custom>
+
+<view class="qiun-charts">
+  <canvas canvas-id="canvasColumn" id="canvasColumn" class="charts" bindtouchstart="touchColumn"></canvas>
+  <canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" bindtouchstart="touchLineA" bindtouchmove="moveLineA" bindtouchend="touchEndLineA"></canvas>
+  <canvas canvas-id="canvasCandle" id="canvasCandle" class="charts" disable-scroll="true" bindtouchstart="touchCandle" bindtouchmove="moveCandle" bindtouchend="touchEndCandle"></canvas>
+</view>
+
