@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@antv/wx-f2": "^2.1.0",
     "@vant/weapp": "^1.2.2"
   }
 }

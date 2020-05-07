@@ -6,8 +6,6 @@
     "pages/salary/home/home",
     "pages/salary/profession/profession",
     "pages/salary/college/college",
-    "pages/salary/test/test",
-    "pages/salary/test2/test2",
     "pages/salary/class/class",
     "pages/author/author"
   ],
@@ -29,7 +27,6 @@
     "van-tree-select": "@vant/weapp/tree-select/index",
     "van-sidebar": "@vant/weapp/sidebar/index",
     "van-sidebar-item": "@vant/weapp/sidebar-item/index",
-    "f2": "@antv/wx-f2"
   },
   "sitemapLocation": "sitemap.json"
 }
