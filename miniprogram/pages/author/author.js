@@ -60,9 +60,13 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage() {
+    return {
+      title: '要知华农，尽在知侬',
+      path: '/pages/activity/activiry'
+    }
   },
+  
   CopyLink(e) {
     wx.setClipboardData({
       data: e.currentTarget.dataset.link,

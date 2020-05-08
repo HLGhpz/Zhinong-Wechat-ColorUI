@@ -3,6 +3,7 @@ const db = wx.cloud.database()
 const _ = db.command
 const exams = db.collection('ExamDafault')
 const target = db.collection('Target')
+
 Page({
 
   /**
@@ -72,8 +73,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage() {
+    return {
+      title: '要知华农，尽在知侬',
+      path: '/pages/target/target'
+    }
   },
 
   /**
@@ -106,7 +110,6 @@ Page({
         this.setData({
           examDafault: res.data
         })
-        wx.stopPullDownRefresh()
       })
   },
 
@@ -127,6 +130,7 @@ Page({
         this.setData({
           target: res.data
         })
+        wx.stopPullDownRefresh()
       })
   },
 
@@ -142,6 +146,10 @@ Page({
         targetName: e.detail.value.targetName
       }
     }).then(res => {
+      this.setData({
+        targetName: "",
+        targetIntro: "",
+      })
       this.reqTarget()
     })
   },

@@ -13,7 +13,8 @@
       </view>
       <view class="cu-list menu-avatar">
         <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url(/images/avator/hzau.png);"></view>
+          <view class="cu-avatar round lg" 
+          style="background-image:url(https://i.loli.net/2020/05/08/g1qFenDfp6mUXbQ.png);"></view>
           <view class="content flex-sub">
             <view class="text-cyan">{{item.activitySponsor}}</view>
             <view class="text-black text-sm flex justify-between">
@@ -26,3 +27,7 @@
   </view>
 
 </block>
+
+<demo-block custom-class="white" title="" padding>
+    <van-divider content-position="center" custom-style="color: #0099A3;border-color: #0099A3;font-size: 16px;">到底了哟</van-divider>
+</demo-block>

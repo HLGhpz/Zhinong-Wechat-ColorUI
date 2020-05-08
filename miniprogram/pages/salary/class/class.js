@@ -12,6 +12,12 @@ Page({
     cHeight: '',
     TabCur: 0
   },
+  onShareAppMessage() {
+    return {
+      title: '要知华农，尽在知侬',
+      path: '/pages/salary/salary/class'
+    }
+  },
   onLoad: function() {
     _self = this;
     this.cWidth = wx.getSystemInfoSync().windowWidth;

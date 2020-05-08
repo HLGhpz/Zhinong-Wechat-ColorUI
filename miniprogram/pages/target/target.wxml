@@ -1,5 +1,4 @@
-<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
-  <view slot="backText">返回</view>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{flase}}">
   <view slot="content">时间轴</view>
 </cu-custom>
 
@@ -11,6 +10,8 @@
     <text class="cuIcon-remind"></text> 自定义
   </view>
 </scroll-view>
+
+
 
 <block wx:if="{{TabCur==1}}">
   <block wx:for="{{examDafault}}" wx:key>
@@ -29,86 +30,47 @@
   </block>
 </block>
 <block wx:if="{{TabCur==2}}">
-  <block wx:for="{{target}}" wx:key>
-    <view class="cu-timeline">
-      <view class="cu-time">{{item.targetTime}}</view>
-      <view class="cu-item text-red cuIcon-countdownfill">
-        <view class="content">
-          <van-swipe-cell id="{{item._id}}" right-width="{{ 65 }}" bind:click="onTargetClick">
-            <van-cell-group>
-              <view class="cu-capsule radius">
-                <view class="cu-tag bg-cyan">倒计时</view>
-                <view class="cu-tag line-cyan">{{item.countDown}}</view>
-              </view>
-              <view class="margin-top">[ {{item.targetName}} ]： {{item.targetIntro}}</view>
-            </van-cell-group>
-            <view slot="right">删除</view>
-          </van-swipe-cell>
+    <block wx:for="{{target}}" wx:key>
+      <view class="cu-timeline">
+        <view class="cu-time">{{item.targetTime}}</view>
+        <view class="cu-item text-red cuIcon-countdownfill">
+          <view class="content">
+            <van-swipe-cell id="{{item._id}}" right-width="{{ 65 }}" bind:click="onTargetClick">
+              <van-cell-group>
+                <view class="cu-capsule radius">
+                  <view class="cu-tag bg-cyan">倒计时</view>
+                  <view class="cu-tag line-cyan">{{item.countDown}}</view>
+                </view>
+                <view class="margin-top">[ {{item.targetName}} ]： {{item.targetIntro}}</view>
+              </van-cell-group>
+              <view slot="right">删除</view>
+            </van-swipe-cell>
+          </view>
         </view>
       </view>
-    </view>
-  </block>
+    </block>
 
-  <van-divider contentPosition="center" customStyle="color: #1CBBB4;border-color: #1CBBB4;font-size: 12px;">左滑可删除任务</van-divider>
+    <van-divider contentPosition="center" customStyle="color: #1CBBB4;border-color: #1CBBB4;font-size: 12px;">左滑可删除任务</van-divider>
 
-  <form bindsubmit="formSubmit">
-    <view class="cu-form-group margin-top">
-      <view class="title">事件</view>
-      <input name="targetName" placeholder="请输入事件名"></input>
-      <text class="cuIcon-favor text-orange"></text>
-    </view>
-    <view class="cu-form-group">
-      <view class="title">简介</view>
-      <input name="targetIntro" placeholder="请输入事件简介"></input>
-      <text class="cuIcon-comment text-orange"></text>
-    </view>
-    <view class="cu-form-group">
-      <view class="title">日期</view>
-      <picker name="targetTime" mode="date" value="{{targetDate}}" bindchange="DateChange" start="2020-01-01" end="2030-01-01">
-        <view class="picker">{{targetDate}}</view>
-      </picker>
-    </view>
-    <view class="padding flex flex-direction">
-      <button form-type="submit" class="cu-btn bg-cyan lg">提交</button>
-    </view>
-  </form>
+    <form bindsubmit="formSubmit">
+      <view class="cu-form-group margin-top">
+        <view class="title">事件</view>
+        <input name="targetName" placeholder="请输入事件名">{targetName}}</input>
+        <text class="cuIcon-favor text-orange"></text>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">简介</view>
+        <input name="targetIntro" placeholder="请输入事件简介">{{targetIntro}}</input>
+        <text class="cuIcon-comment text-orange"></text>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">日期</view>
+        <picker name="targetTime" mode="date" value="{{targetDate}}" bindchange="DateChange" start="2020-01-01" end="2030-01-01">
+          <view class="picker">{{targetDate}}</view>
+        </picker>
+      </view>
+      <view class="padding flex flex-direction">
+        <button form-type="submit" class="cu-btn bg-cyan lg">提交</button>
+      </view>
+    </form>
 </block>
-
-
-<!-- target关闭的基础用法 -->
-<!-- <block wx:for="{{target}}">
-  <view class="cu-timeline">
-    <view class="cu-time">{{item.targetTime}}</view>
-    <view class="cu-item text-red cuIcon-countdownfill">
-      <view class="content">
-        <van-swipe-cell right-width="{{ 65 }}" bind:click="onTargetClick">
-          <van-cell-group>
-            <view class="cu-capsule radius">
-              <view class="cu-tag bg-cyan">倒计时</view>
-              <view class="cu-tag line-cyan">{{item.countDown}}</view>
-            </view>
-            <view class="margin-top">[ {{item.targetName}} ]： {{item.targetIntro}}</view>
-          </van-cell-group>
-          <view slot="right">删除</view>
-        </van-swipe-cell>
-      </view>
-    </view>
-  </view>
-</block> -->
-
-
-<!-- 单纯的卡片 -->
-<!-- <block wx:for="{{target}}">
-  <view class="cu-timeline">
-    <view class="cu-time">{{item.targetTime}}</view>
-    <view class="cu-item text-red cuIcon-countdownfill">
-      <view class="content">
-        <view class="cu-capsule radius">
-          <view class="cu-tag bg-cyan">倒计时</view>
-          <view class="cu-tag line-cyan">{{item.countDown}}</view>
-        </view>
-        <view class="margin-top">[ {{item.targetName}} ]： {{item.targetIntro}}</view>
-      </view>
-    </view>
-  </view>
-</block> -->

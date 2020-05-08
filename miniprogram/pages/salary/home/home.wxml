@@ -18,6 +18,7 @@
   <image src="/images/cjkz.png" mode="widthFix"></image>
 </view>
 </cu-custom> -->
+
 <view class="cu-card">
   <view class="cu-item bg-img shadow-blur" style="background-image:url({{item.img}})" bindtap="toChild" data-url="{{item.url}}" wx:for="{{list}}" wx:key>
     <view class="cardTitle text-red">

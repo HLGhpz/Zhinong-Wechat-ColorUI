@@ -6,14 +6,13 @@
     "pages/salary/home/home",
     "pages/salary/profession/profession",
     "pages/salary/college/college",
-    "pages/salary/class/class"
+    "pages/salary/class/class",
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
     "navigationBarTitleText": "Color UI",
     "navigationStyle": "custom",
-    "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "white"
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",
