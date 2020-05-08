@@ -131,18 +131,27 @@
 					"id": -1,
 					"name": "pages/salary/test/test",
 					"pathName": "pages/salary/test/test",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/salary/class2/class2",
 					"pathName": "pages/salary/class2/class2",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/author/author",
 					"pathName": "pages/author/author",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/test/test",
+					"pathName": "pages/test/test",
 					"scene": null
 				}
 			]
